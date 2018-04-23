@@ -1,2 +1,2 @@
 # News-App
-This is an app that uses google APIs to fetch international and putsthem in a listview.
+This is an app that uses google APIs to fetch international news and putsthem in a listview.
