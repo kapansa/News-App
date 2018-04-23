@@ -59,9 +59,3 @@ project(':react-native-vector-icons').projectDir = new File(rootProject.projectD
 
 
 
-
-
-
-
-
-
