@@ -8,7 +8,6 @@ export default class App extends React.Component {
     return (
       
       <View style={{flex: 1}}>
-        <SearchBar />
         <NewsView />
       </View>
     );

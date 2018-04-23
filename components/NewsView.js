@@ -1,26 +1,33 @@
 import React from 'react';
 import { Text, View, ScrollView, Image, ListView, Alert, StyleSheet } from 'react-native';
 import { Card, Button } from 'react-native-elements';
+import Welcome from  './Welcome';
+import SearchBar from  './SearchBar';
 
 export default class NewsView extends React.Component {
 
   constructor(props){
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = { 
-      news: [{}]
+      news: [{}],
+      check: true
     }
   }
 
   componentDidMount(){
     var allNews = fetch('https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=4959d88cadab4be8b349cad1005e27fb')
     .then( (response) => response.json() )
-    .then( responseJson => { this.setState({ news: responseJson.articles }); } );
+    .then( responseJson => { this.setState({ news: responseJson.articles, check: false}); } );
   }
 
   render() {
+    if(this.state.check == true){
+      return <Welcome />
+    }else{
     return(
-      <View style={{paddingBottom: 80}}> 
+      <View>
+      <SearchBar />
+      <View style={{paddingBottom: 150}}> 
         <ScrollView>
             {
                this.state.news.map((item) => (
@@ -42,7 +49,9 @@ export default class NewsView extends React.Component {
             }
             </ScrollView>
          </View>
-    );
+         </View>
+    )
+  };
   }
 }
 
@@ -52,7 +61,7 @@ const styles = StyleSheet.create ({
      marginTop: 10,
      backgroundColor: 'grey',
      alignItems: 'center',
-  },
+  }, 
   text: {
      color: 'white',
      fontWeight: 'bold',
