@@ -5,8 +5,6 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <ImageBackground source={require('./img/news.jpeg')} style={styles.container}>
-       <Text style={styles.text}>INTERNATIONAL NEWS</Text>
-       <Text style={styles.text}>KAPS.COM</Text>
       </ImageBackground>
     );
   }

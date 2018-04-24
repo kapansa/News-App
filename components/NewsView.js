@@ -3,6 +3,7 @@ import { Text, View, ScrollView, Image, ListView, Alert, StyleSheet } from 'reac
 import { Card, Button } from 'react-native-elements';
 import Welcome from  './Welcome';
 import SearchBar from  './SearchBar';
+import AllNews from  './AllNews';
 
 export default class NewsView extends React.Component {
 
@@ -15,41 +16,20 @@ export default class NewsView extends React.Component {
   }
 
   componentDidMount(){
-    var allNews = fetch('https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=4959d88cadab4be8b349cad1005e27fb')
+    var allNews = fetch('https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=4959d88cadab4be8b349cad1005e27fb')
     .then( (response) => response.json() )
     .then( responseJson => { this.setState({ news: responseJson.articles, check: false}); } );
   }
 
   render() {
     if(this.state.check == true){
+
       return <Welcome />
+
     }else{
+
     return(
-      <View>
-      <SearchBar />
-      <View style={{paddingBottom: 150}}> 
-        <ScrollView>
-            {
-               this.state.news.map((item) => (
-                  <View 
-                    style = {styles.container} 
-                    > 
-                     <Text style = {styles.text}>
-                        {item.title}
-                     </Text>
-                     <Image source={{uri: item.urlToImage }} style={{width: 270, height: 190, marginBottom: 10 ,marginTop: 5}} />
-                    <Button onPress = {() => Alert.alert(
-                    'NEWS DETAILS',
-                    item.description,
-                    [{text: 'Ok'}]
-                    )} title="View More Details" 
-                    />
-                  </View>
-               ))
-            }
-            </ScrollView>
-         </View>
-         </View>
+      <AllNews />
     )
   };
   }

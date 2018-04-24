@@ -10,10 +10,6 @@ export default class SearchBar extends React.Component {
     }
   }
 
-  handlesubmit(){
-    alert('this is what you searched for:');
-  }
-
     render() {
       return (
         <View style={{ backgroundColor: 'grey', height: 70, flexDirection: 'row'}}>
@@ -25,9 +21,9 @@ export default class SearchBar extends React.Component {
           <View style={{paddingTop: 10}}>
             <TextInput 
              returnKeyType="search"
-             search={this.state.search}
+             text={this.state.search}
              onChangeText={ (e) => this.setState({ search: e })}
-             onSubmitEditing={this.handlesubmit}
+             onSubmitEditing={this.showMeaning}
              underlineColorAndroid="transparent"
              type="text" placeholder="Search for local news" 
              style={{backgroundColor: 'white',  borderRadius: 10, paddingLeft: 13, width:200}}
