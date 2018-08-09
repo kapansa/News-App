@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { 
+    this.state = {
       search: '',
     }
   }
@@ -17,15 +17,15 @@ export default class SearchBar extends React.Component {
           <View style={{paddingTop: 20, paddingRight: 10, paddingLeft: 10}}>
             <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>KAPS.COM</Text>
           </View>
-          
+
           <View style={{paddingTop: 10}}>
-            <TextInput 
+            <TextInput
              returnKeyType="search"
              text={this.state.search}
              onChangeText={ (e) => this.setState({ search: e })}
              onSubmitEditing={this.showMeaning}
              underlineColorAndroid="transparent"
-             type="text" placeholder="Search for local news" 
+             type="text" placeholder="Search for local news"
              style={{backgroundColor: 'white',  borderRadius: 10, paddingLeft: 13, width:200}}
              />
              </View>
@@ -34,4 +34,3 @@ export default class SearchBar extends React.Component {
       );
     }
   }
-  

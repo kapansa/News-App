@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet,  ScrollView } from 'react-native';
+import { View, StyleSheet,  ScrollView,ImageBackground } from 'react-native';
 import {  Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 import BbcSports from  './BbcSports';
@@ -21,6 +21,7 @@ import AbcNews from  './AbcNews';
 class AllNews extends React.Component {
   render() {
     return (
+      <ImageBackground source={require('./img/news.jpeg')} style={styles.container}>
       <View style={styles.container}>
       <ScrollView>
       <View style={{marginBottom: 15}}>
@@ -70,6 +71,7 @@ class AllNews extends React.Component {
       </View>
       </ScrollView>
       </View>
+      </ImageBackground>
     );
   }
 }
@@ -77,14 +79,13 @@ class AllNews extends React.Component {
 const styles = StyleSheet.create ({
     container: {
        flex: 1,
-       backgroundColor: 'grey',
        paddingTop: 10
-    }, 
+    },
     text: {
        color: 'white',
        fontWeight: 'bold',
        fontSize: 15
-    }, 
+    },
     but: {
         backgroundColor: 'grey',
         paddingBottom: 20,
@@ -204,4 +205,3 @@ const styles = StyleSheet.create ({
         },
       },
   });
-  

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, Image, ListView, Alert, StyleSheet } from 'react-native';
 import {  Button } from 'react-native-elements';
+import SearchBar from  './SearchBar';
 
 export default class Sports extends React.Component {
 
@@ -13,7 +14,7 @@ export default class Sports extends React.Component {
   }
 
   componentDidMount(){
-    var allNews = fetch('https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=4959d88cadab4be8b349cad1005e27fb')
+    var allNews = fetch('https://newsapi.org/v2/top-headlines?sources=recode&apiKey=4959d88cadab4be8b349cad1005e27fb')
     .then( (response) => response.json() )
     .then( responseJson => { this.setState({ news: responseJson.articles, check: false}); } );
   }
@@ -33,12 +34,12 @@ export default class Sports extends React.Component {
                         {item.title}
                      </Text>
                      <Image source={{uri: item.urlToImage }} style={{width: 270, height: 190, marginBottom: 10 ,marginTop: 5}} />
-                     <Button onPress = {() => Alert.alert(
-                     'NEWS DETAILS',
-                     item.description,
-                     [{text: 'Ok'}]
-                     )} title="View More Details"
-                     />
+                    <Button onPress = {() => Alert.alert(
+                    'NEWS DETAILS',
+                    item.description,
+                    [{text: 'Ok'}]
+                    )} title="View More Details"
+                    />
                   </View>
                ))
             }

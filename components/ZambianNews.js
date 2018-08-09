@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet,WebView  } from 'react-native';
 
-export default class Welcome extends React.Component {
+export default class ZambianNews extends React.Component {
   render() {
     return (
-      <ImageBackground source={require('./img/news.jpeg')} style={styles.container}>
-      </ImageBackground>
+      <WebView
+          source={{uri: 'https://mwebantu.com/'}}
+          style={{marginTop: 20}}
+        />
     );
   }
 }
