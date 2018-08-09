@@ -3,6 +3,7 @@ import { View, StyleSheet,  ScrollView,ImageBackground } from 'react-native';
 import {  Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 import BbcSports from  './BbcSports';
+import ZambianNews from  './ZambianNews';
 import BbcNews from  './BbcNews';
 import CbcNews from  './CbcNews';
 import CnbcNews from  './CnbcNews';
@@ -24,6 +25,9 @@ class AllNews extends React.Component {
       <ImageBackground source={require('./img/news.jpeg')} style={styles.container}>
       <View style={styles.container}>
       <ScrollView>
+      <View style={{marginBottom: 15}}>
+        <Button style={styles.but} onPress={() => this.props.navigation.navigate('ZambianNews')} title="Zambian News" />
+      </View>
       <View style={{marginBottom: 15}}>
         <Button style={styles.but} onPress={() => this.props.navigation.navigate('BbcSports')} title="BBC Sports News" />
       </View>
@@ -104,6 +108,13 @@ const styles = StyleSheet.create ({
         screen: BbcSports,
         navigationOptions: {
           headerTitle: 'BBC Sports',
+        },
+      },
+
+    ZambianNews: {
+        screen: ZambianNews,
+        navigationOptions: {
+          headerTitle: 'Zambian News',
         },
       },
 
